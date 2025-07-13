@@ -1,29 +1,39 @@
-# MotoJeopardyNER
+# 1. MotoJeopardyNER
 A specialized dataset curation pipeline for Named Entity Recognition (NER) validation using Jeopardy! questions. This project processes ~217K Jeopardy questions to create high-quality validation subsets targeting specific NER challenges.
 
-# Project Overview
+# 2. Project Overview
 Goal: Curate specialized subsets from the Jeopardy Questions dataset to validate NER model performance across three challenging categories:
 
 - Phrases containing numbers
 - Phrases containing non-English words
 - Phrases containing unusual proper nouns
 
-# Project structure sketch:
-## Data preprocessing
-- [] dataloader
-- [] validation/clean
+# 3. Project structure sketch:
+## 3.1 Data preprocessing
+- [x] dataloader
+- [ ] validation/clean
 
-## Data generation
-### Datafactory
-- [] phrases containing numbers
-- [] phrases containing non-English words
-- [] phrases containing unusual proper nouns
+## 3.2 Data generation
+### 3.2.1 Datafactory
+- [ ] phrases containing numbers
+- [ ] phrases containing non-English words
+- [ ] phrases containing unusual proper nouns
 
-# Infrastructure
-## Logging
-## Reports
-## Validation
+# 4. Infrastructure
+## 4.1 Logging
+## 4.2 Reports
+## 4.3 Validation
 
-# Further consideration
+# 5. Further consideration
 - [] Module reusable
 - [] Caching and database
+
+---
+
+# 6. Get Start
+## 6.1 Setup
+## 6.2 Module validation
+- dataloader
+```bash
+python3 -m src.data.handler
+```
