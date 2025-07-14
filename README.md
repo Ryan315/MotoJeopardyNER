@@ -1,3 +1,5 @@
+![Curation pipeline](./pipeline.png)
+
 # 1. MotoJeopardyNER
 A specialized dataset curation pipeline for Named Entity Recognition (NER) validation using Jeopardy! questions. This project processes ~217K Jeopardy questions to create high-quality validation subsets targeting specific NER challenges.
 
