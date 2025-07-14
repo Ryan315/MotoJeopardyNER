@@ -123,8 +123,8 @@ class JeopardyDataHandler:
                 date_min = self.df['air_date'].min()
                 date_max = self.df['air_date'].max()
                 summary['date_range'] = {
-                    'earliest': date_min.strftime('%Y-%m-%d') if pd.notna(date_min) else None,
-                    'latest': date_max.strftime('%Y-%m-%d') if pd.notna(date_max) else None
+                    'earliest': date_min if pd.notna(date_min) else None,
+                    'latest': date_max if pd.notna(date_max) else None
                 }
             
             # Round distribution
