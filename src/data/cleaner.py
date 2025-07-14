@@ -104,8 +104,16 @@ class JeopardyDataCleaner:
         # Decode HTML entities
         text = html.unescape(text)
         
-        # Handle backslash escapes
+        # Handle escaped quotes from raw data (double-encoded JSON)
+        text = text.replace('\\"', '"')
+        text = text.replace("\\'", "'")
+        
+        # Handle other backslash escapes
         text = self.patterns['backslash_escapes'].sub(r'\1', text)
+        
+        # Remove outer single quotes that wrap the entire text
+        # if len(text) >= 2 and text.startswith("'") and text.endswith("'"):
+        #     text = text[1:-1]
         
         # Field-specific cleaning
         if field_type == 'question':
@@ -140,6 +148,7 @@ class JeopardyDataCleaner:
         text = self.patterns['multiple_spaces'].sub(' ', text)
         
         return text.strip()
+
     
     def validate_metadata_field(self, value: str, field_name: str) -> Dict[str, any]:
         """
