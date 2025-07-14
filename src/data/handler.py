@@ -3,13 +3,14 @@
 import pandas as pd
 import os
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 class JeopardyDataHandler:    
-    def __init__(self, json_file_path: str):
+    def __init__(self, json_file_path: str, test_limit: Optional[int] = None):
         self.json_file = json_file_path
         self.df = None
         self.logger = logging.getLogger(__name__)
+        self.test_limit = test_limit
         
     def load_and_validate(self) -> pd.DataFrame:
         """Load and validate the Jeopardy dataset."""
@@ -23,9 +24,17 @@ class JeopardyDataHandler:
         print(f"Loading data from {self.json_file}...")
         
         try:
-            self.df = pd.read_json(self.json_file)
-            self.logger.info(f"Successfully loaded {len(self.df):,} records")
-            print(f"✓ Loaded {len(self.df):,} records")
+            # Add test limit if specified for testing data_cleaner
+            if self.test_limit:
+                self.df = pd.read_json(self.json_file)
+                if len(self.df) > self.test_limit:
+                    self.df = self.df.head(self.test_limit)
+                self.logger.info(f"Successfully loaded {len(self.df):,} records (limited to {self.test_limit:,} for testing)")
+                print(f"✓ Loaded {len(self.df):,} records (TEST MODE - limited to {self.test_limit:,})")
+            else:
+                self.df = pd.read_json(self.json_file)
+                self.logger.info(f"Successfully loaded {len(self.df):,} records")
+                print(f"✓ Loaded {len(self.df):,} records")
         except Exception as e:
             raise ValueError(f"Failed to load JSON data: {e}")
         
@@ -73,11 +82,9 @@ class JeopardyDataHandler:
             self.df['value'] = self.df['value'].astype(str)
         
         # Handle air_date
+        # INFO: Don't convert to datetime for simplicity, just ensure it's a string currently.
         if 'air_date' in self.df.columns:
-            try:
-                self.df['air_date'] = pd.to_datetime(self.df['air_date'], errors='coerce')
-            except Exception:
-                self.logger.warning("Could not parse air_date column")
+            self.df['air_date'] = self.df['air_date'].astype(str)
         
         # Remove completely empty rows
         self.df = self.df.dropna(how='all')

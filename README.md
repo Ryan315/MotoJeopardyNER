@@ -37,3 +37,10 @@ Goal: Curate specialized subsets from the Jeopardy Questions dataset to validate
 ```bash
 python3 -m src.data.handler
 ```
+
+- datafactory
+```bash
+python3 -m src.factories.numbers_factory
+python3 -m src.factories.language_factory
+python3 -m src.factories.entities_factory
+```
