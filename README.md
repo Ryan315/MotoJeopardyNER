@@ -9,7 +9,7 @@ Goal: Curate specialized subsets from the Jeopardy Questions dataset to validate
 - Phrases containing unusual proper nouns
 
 # 3. Project structure sketch:
-
+```bash
 MOTOJEOPARDYNER/
 ├── data/
 │   ├── processed/
@@ -37,6 +37,7 @@ MOTOJEOPARDYNER/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+```
 
 ## 3.1 Data preprocessing
 - [x] dataloader
