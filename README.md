@@ -9,6 +9,35 @@ Goal: Curate specialized subsets from the Jeopardy Questions dataset to validate
 - Phrases containing unusual proper nouns
 
 # 3. Project structure sketch:
+
+MOTOJEOPARDYNER/
+├── data/
+│   ├── processed/
+│   ├── raw/
+│   └── subsets/
+├── outputs/
+│   ├── logs/
+│   ├── processed/
+│   ├── reports/
+│   └── validation/
+├── scripts/
+│   ├── main_pipeline.py
+│   └── test_data_pipeline.py
+├── src/
+│   ├── data/
+│   │   ├── __init__.py
+│   │   ├── cleaner.py
+│   │   └── handler.py
+│   └── factories/
+│       ├── __init__.py
+│       ├── base_factory.py
+│       ├── entities_factory.py
+│       ├── language_factory.py
+│       └── numbers_factory.py
+├── .gitignore
+├── README.md
+└── requirements.txt
+
 ## 3.1 Data preprocessing
 - [x] dataloader
 - [x] validation/clean
@@ -48,10 +77,11 @@ pip3 install -r requirements.txt
 python3 scripts/main_pipeline.py
 ```
 
-
 1. cleaned data saved to data/processed/jeopardy_cleaned.jsonl
 2. sampled subsets saved to data/subsets/*
 3. logging and report saved to outputs/*
+
+Console outputs are saved to ['console output'](./console_log)
 
 ## 6.2 Module validation
 - dataloader
