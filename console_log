@@ -1,0 +1,223 @@
+⚡ python3 scripts/main_pipeline.py                                  □ MotoJeopardyNER △ main_pipeli⋯⎪●◦◌◦⎥ [🐍 3.12.8 (env-dev)] [🕙19:03]
+🚀 JEOPARDY NER DATASET CURATION - ENHANCED PIPELINE
+Processing ~217K Jeopardy questions with comprehensive cleaning & validation...
+
+🔄 STEP 1: LOADING RAW DATA
+============================================================
+2025-07-13 19:10:03,271 - data.handler - INFO - Loading data from data/raw/JEOPARDY_QUESTIONS1.json...
+Loading data from data/raw/JEOPARDY_QUESTIONS1.json...
+2025-07-13 19:10:03,709 - data.handler - INFO - Successfully loaded 216,930 records
+✓ Loaded 216,930 records
+2025-07-13 19:10:03,709 - data.handler - INFO - ✓ Schema validation passed
+✓ Schema validation passed
+2025-07-13 19:10:04,088 - data.handler - INFO - No records removed during cleaning
+✓ Data already clean: 216,930 records
+✓ Raw dataset loaded successfully:
+  - Total records: 216,930
+  - Memory usage: 101.2 MB
+  - Columns: ['category', 'air_date', 'question', 'value', 'answer', 'round', 'show_number']
+
+📋 RAW DATA PREVIEW:
+  category: 0 null values (0.0%)
+  value: 0 null values (0.0%)
+  question: 0 null values (0.0%)
+  answer: 0 null values (0.0%)
+  round: 0 null values (0.0%)
+  show_number: 0 null values (0.0%)
+  air_date: 0 null values (0.0%)
+
+🧹 STEP 2: DATA CLEANING & VALIDATION
+============================================================
+🔍 DEBUGGING SAMPLE RECORDS...
+
+🔍 VALIDATION DEBUG RESULTS
+==================================================
+
+Record 1 (Index 0): ✓ VALID
+  Metadata: ✓ | Text: ✓
+  ✓ category: HISTORY
+  ✓ air_date: 2004-12-31
+  ✓ value: $200
+  ✓ round: Jeopardy!
+  ✓ show_number: 4680
+  ✓ question: 'For the last 8 years of his life, Galileo was und → 'For the last 8 years of his life, Galileo was und
+  ✓ answer: Copernicus → Copernicus
+
+
+Record 2 (Index 1): ✓ VALID
+  Metadata: ✓ | Text: ✓
+  ✓ category: ESPN's TOP 10 ALL-TIME ATHLETES
+  ✓ air_date: 2004-12-31
+  ✓ value: $200
+  ✓ round: Jeopardy!
+  ✓ show_number: 4680
+  ✓ question: 'No. 2: 1912 Olympian; football star at Carlisle I → 'No. 2: 1912 Olympian; football star at Carlisle I
+  ✓ answer: Jim Thorpe → Jim Thorpe
+
+
+Record 3 (Index 2): ✓ VALID
+  Metadata: ✓ | Text: ✓
+  ✓ category: EVERYBODY TALKS ABOUT IT...
+  ✓ air_date: 2004-12-31
+  ✓ value: $200
+  ✓ round: Jeopardy!
+  ✓ show_number: 4680
+  ✓ question: 'The city of Yuma in this state has a record avera → 'The city of Yuma in this state has a record avera
+  ✓ answer: Arizona → Arizona
+
+🔄 Processing all records...
+2025-07-13 19:10:04,566 - data.cleaner - INFO - Starting cleaning process for 216930 records
+2025-07-13 19:10:04,578 - data.cleaner - INFO - Stage 1: Validating metadata fields...
+2025-07-13 19:10:08,996 - data.cleaner - INFO - Stage 1 complete: 216930/216930 records have valid metadata
+2025-07-13 19:10:08,996 - data.cleaner - INFO - Stage 2: Cleaning text fields...
+2025-07-13 19:10:08,996 - data.cleaner - INFO - Cleaning question field...
+2025-07-13 19:10:12,362 - data.cleaner - INFO - Cleaning answer field...
+2025-07-13 19:10:12,947 - data.cleaner - INFO - Stage 3: Final validation of cleaned text fields...
+2025-07-13 19:10:16,449 - data.cleaner - INFO - Cleaning completed: 216930/216930 records retained
+
+======================================================================
+📊 DATA CLEANING & VALIDATION REPORT
+======================================================================
+📈 OVERALL SUMMARY:
+  Total records processed: 216,930
+  Valid records retained: 216,930
+  Records removed: 0
+  Retention rate: 100.00%
+
+📋 FIELD VALIDATION STATISTICS:
+  METADATA FIELDS (Strict Validation):
+    CATEGORY:
+      Non-empty: 216,930/216,930 (100.0%)
+      Errors: 0 (0.0%)
+      Valid: 216,930
+    AIR_DATE:
+      Non-empty: 216,930/216,930 (100.0%)
+      Errors: 0 (0.0%)
+      Valid: 216,930
+    VALUE:
+      Non-empty: 216,930/216,930 (100.0%)
+      Errors: 0 (0.0%)
+      Valid: 216,930
+    ROUND:
+      Non-empty: 216,930/216,930 (100.0%)
+      Errors: 0 (0.0%)
+      Valid: 216,930
+    SHOW_NUMBER:
+      Non-empty: 216,930/216,930 (100.0%)
+      Errors: 0 (0.0%)
+      Valid: 216,930
+  TEXT FIELDS (Cleaned & Leniently Validated):
+    QUESTION:
+      Non-empty: 216,930/216,930 (100.0%)
+      Errors after cleaning: 0 (0.0%)
+      Valid: 216,930
+    ANSWER:
+      Non-empty: 216,930/216,930 (100.0%)
+      Errors after cleaning: 0 (0.0%)
+      Valid: 216,930
+
+🧹 TEXT CLEANING SUMMARY:
+  QUESTION:
+    Avg length: 89 → 83 chars
+    Avg reduction: 5.4 chars
+    Empty after cleaning: 0
+    Significantly reduced: 10,819
+  ANSWER:
+    Avg length: 12 → 12 chars
+    Avg reduction: 0.0 chars
+    Empty after cleaning: 0
+    Significantly reduced: 1
+📁 Validation report saved to: outputs/validation/cleaning_report.json
+
+💾 CLEANED DATA SAVED:
+  - Clean dataset: data/processed/jeopardy_cleaned.jsonl
+  - Validation report: outputs/validation/cleaning_report.json
+  - Processing time: 11.9 seconds
+  - Final dataset size: 216,930 records
+
+🔢 STEP 3: PROCESSING NUMBERS SUBSET
+============================================================
+2025-07-13 19:10:21,117 - factories.base_factory.NumbersDatasetFactory - INFO - Starting numbers detection using 10 processes...
+2025-07-13 19:10:25,073 - factories.base_factory.NumbersDatasetFactory - INFO - Processing 216,930 records in 30 chunks (~7231 records per chunk)
+Processing numbers: 100%|███████████████████████████████████████████████████████████████████████████████████| 30/30 [02:43<00:00,  5.46s/it]
+2025-07-13 19:13:08,863 - factories.base_factory.NumbersDatasetFactory - INFO - ✓ numbers detection completed: 118,547/216,930 records (54.6%) in 167.7s
+2025-07-13 19:13:08,966 - factories.base_factory.NumbersDatasetFactory - INFO - Sampled 1,000 records from 118,547 candidates
+2025-07-13 19:13:08,978 - factories.base_factory.NumbersDatasetFactory - INFO - ✓ Exported 1,000 records to data/subsets/numbers_subset.jsonl
+
+✓ Numbers subset completed:
+  - Candidates found: 118,547/216,930 (54.6%)
+  - Subset generated: 1,000 records
+  - Processing time: 167.8s
+  - Speed: 1293 records/second
+  - Output: data/subsets/numbers_subset.jsonl
+
+🌍 STEP 4: PROCESSING NON-ENGLISH SUBSET
+============================================================
+2025-07-13 19:13:08,992 - factories.base_factory.NonEnglishDatasetFactory - INFO - Starting non_english detection using 10 processes...
+2025-07-13 19:13:12,523 - factories.base_factory.NonEnglishDatasetFactory - INFO - Processing 216,930 records in 30 chunks (~7231 records per chunk)
+Processing non_english: 100%|███████████████████████████████████████████████████████████████████████████████| 30/30 [02:32<00:00,  5.08s/it]
+2025-07-13 19:15:44,999 - factories.base_factory.NonEnglishDatasetFactory - INFO - ✓ non_english detection completed: 36,467/216,930 records (16.8%) in 156.0s
+2025-07-13 19:15:45,077 - factories.base_factory.NonEnglishDatasetFactory - INFO - Sampled 1,000 records from 36,467 candidates
+2025-07-13 19:15:45,085 - factories.base_factory.NonEnglishDatasetFactory - INFO - ✓ Exported 1,000 records to data/subsets/non_english_subset.jsonl
+
+✓ Non-English subset completed:
+  - Candidates found: 36,467/216,930 (16.8%)
+  - Subset generated: 1,000 records
+  - Processing time: 156.0s
+  - Speed: 1391 records/second
+  - Output: data/subsets/non_english_subset.jsonl
+
+👤 STEP 5: PROCESSING PROPER NOUNS SUBSET
+============================================================
+Phase 1: Analyzing entity frequencies across entire dataset...
+2025-07-13 19:15:45,149 - factories.base_factory.ProperNounsDatasetFactory - INFO - Analyzing proper noun frequencies across 216,930 records...
+2025-07-13 19:15:45,149 - factories.base_factory.ProperNounsDatasetFactory - INFO - Processing 216,930 records in 10 chunks using 10 processes
+Processing chunks: 100%|████████████████████████████████████████████████████████████████████████████████████| 10/10 [01:31<00:00,  9.15s/it]
+2025-07-13 19:17:16,764 - factories.base_factory.ProperNounsDatasetFactory - INFO - Frequency analysis completed:
+2025-07-13 19:17:16,766 - factories.base_factory.ProperNounsDatasetFactory - INFO -   - Total unique proper nouns: 118,907
+2025-07-13 19:17:16,767 - factories.base_factory.ProperNounsDatasetFactory - INFO -   - Unusual nouns (≤3): 105,029
+2025-07-13 19:17:16,767 - factories.base_factory.ProperNounsDatasetFactory - INFO -   - Percentage unusual: 88.3%
+2025-07-13 19:17:16,796 - factories.base_factory.ProperNounsDatasetFactory - INFO -   - Most common: {'u.s.': 4172, 'sarah': 1209, 'california': 989, 'france': 961, 'oscar': 861}
+Phase 2: Detecting records with unusual entities...
+2025-07-13 19:17:16,799 - factories.base_factory.ProperNounsDatasetFactory - INFO - Starting proper_nouns detection using 10 processes...
+2025-07-13 19:17:20,450 - factories.base_factory.ProperNounsDatasetFactory - INFO - Processing 216,930 records in 30 chunks (~7231 records per chunk)
+Processing proper_nouns: 100%|██████████████████████████████████████████████████████████████████████████████| 30/30 [00:19<00:00,  1.51it/s]
+2025-07-13 19:17:40,426 - factories.base_factory.ProperNounsDatasetFactory - INFO - ✓ proper_nouns detection completed: 216,906/216,930 records (100.0%) in 23.6s
+2025-07-13 19:17:40,462 - factories.base_factory.ProperNounsDatasetFactory - INFO - Sampled 1,000 records from 216,906 candidates
+2025-07-13 19:17:40,477 - factories.base_factory.ProperNounsDatasetFactory - INFO - ✓ Exported 1,000 records to data/subsets/proper_nouns_subset.jsonl
+
+✓ Proper nouns subset completed:
+  - Total entities analyzed: 118,907
+  - Unusual entities (≤3): 105,029
+  - Candidates found: 216,906/216,930 (100.0%)
+  - Subset generated: 1,000 records
+  - Frequency analysis: 91.7s
+  - Detection time: 23.6s
+  - Total time: 115.3s
+  - Output: data/subsets/proper_nouns_subset.jsonl
+
+📊 STEP 6: GENERATING ANALYSIS REPORT
+============================================================
+✓ Analysis reports generated:
+  - Detailed analysis: outputs/reports/analysis_report.json
+  - Methodology: outputs/reports/methodology_report.md
+
+============================================================
+🎉 PIPELINE COMPLETED SUCCESSFULLY!
+============================================================
+✓ Total processing time: 457.3 seconds
+✓ Original records: 216,930
+✓ Cleaned records: 216,930
+✓ Data quality improvement: 0.0% problematic records removed
+✓ Subsets generated: 3 files with 1000 records each
+✓ Output directories:
+  - Clean dataset: data/processed/
+  - Validation reports: outputs/validation/
+  - Subsets: data/subsets/
+  - Analysis reports: outputs/reports/
+
+📁 Generated Files:
+  - data/processed/jeopardy_cleaned.jsonl (216,930 records)
+  - data/subsets/numbers_subset.jsonl (234.2 KB)
+  - data/subsets/non_english_subset.jsonl (235.4 KB)
+  - data/subsets/proper_nouns_subset.jsonl (231.3 KB)
