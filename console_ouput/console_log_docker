@@ -1,0 +1,229 @@
+ 1m41s ⚡ docker compose up motojeopardyner            □ MotoJeopardyNER △ docker_warp⋯⎪●◦◌◦⎥ [🐍 3.12.8 (env-dev)] [🕙19:51]
+ 
+WARN[0000] /Users/ryany/Documents/Project_codes/MyGit/MotoJeopardyNER/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] Running 1/1
+ ✔ Container motojeopardyner  Recreated                                                                                   0.1s 
+Attaching to motojeopardyner
+motojeopardyner  | 🚀 JEOPARDY NER DATASET CURATION - ENHANCED PIPELINE
+motojeopardyner  | Processing ~217K Jeopardy questions with comprehensive cleaning & validation...
+motojeopardyner  | 
+motojeopardyner  | 🔄 STEP 1: LOADING RAW DATA
+motojeopardyner  | ============================================================
+motojeopardyner  | 2025-07-14 02:53:22,810 - data.handler - INFO - Loading data from data/raw/JEOPARDY_QUESTIONS1.json...
+motojeopardyner  | Loading data from data/raw/JEOPARDY_QUESTIONS1.json...
+motojeopardyner  | 2025-07-14 02:53:23,482 - data.handler - INFO - Successfully loaded 216,930 records
+motojeopardyner  | ✓ Loaded 216,930 records
+motojeopardyner  | ✓ Schema validation passed
+motojeopardyner  | 2025-07-14 02:53:23,482 - data.handler - INFO - ✓ Schema validation passed
+motojeopardyner  | ✓ Data already clean: 216,930 records
+motojeopardyner  | 2025-07-14 02:53:23,997 - data.handler - INFO - No records removed during cleaning
+motojeopardyner  | ✓ Raw dataset loaded successfully:
+motojeopardyner  |   - Total records: 216,930
+motojeopardyner  |   - Memory usage: 112.8 MB
+motojeopardyner  |   - Columns: ['category', 'air_date', 'question', 'value', 'answer', 'round', 'show_number']
+motojeopardyner  | 
+motojeopardyner  | 📋 RAW DATA PREVIEW:
+motojeopardyner  |   category: 0 null values (0.0%)
+motojeopardyner  |   value: 0 null values (0.0%)
+motojeopardyner  |   question: 0 null values (0.0%)
+motojeopardyner  |   answer: 0 null values (0.0%)
+motojeopardyner  |   round: 0 null values (0.0%)
+motojeopardyner  |   show_number: 0 null values (0.0%)
+motojeopardyner  |   air_date: 0 null values (0.0%)
+motojeopardyner  | 
+motojeopardyner  | 🧹 STEP 2: DATA CLEANING & VALIDATION
+motojeopardyner  | ============================================================
+motojeopardyner  | 🔍 DEBUGGING SAMPLE RECORDS...
+motojeopardyner  | 
+motojeopardyner  | 🔍 VALIDATION DEBUG RESULTS
+motojeopardyner  | ==================================================
+motojeopardyner  | 
+motojeopardyner  | Record 1 (Index 0): ✓ VALID
+motojeopardyner  |   Metadata: ✓ | Text: ✓
+motojeopardyner  |   ✓ category: HISTORY
+motojeopardyner  |   ✓ air_date: 2004-12-31
+motojeopardyner  |   ✓ value: $200
+motojeopardyner  |   ✓ round: Jeopardy!
+motojeopardyner  |   ✓ show_number: 4680
+motojeopardyner  |   ✓ question: 'For the last 8 years of his life, Galileo was und → 'For the last 8 years of his life, Galileo was und
+motojeopardyner  |   ✓ answer: Copernicus → Copernicus
+motojeopardyner  | 
+motojeopardyner  | 
+motojeopardyner  | Record 2 (Index 1): ✓ VALID
+motojeopardyner  |   Metadata: ✓ | Text: ✓
+motojeopardyner  |   ✓ category: ESPN's TOP 10 ALL-TIME ATHLETES
+motojeopardyner  |   ✓ air_date: 2004-12-31
+motojeopardyner  |   ✓ value: $200
+motojeopardyner  |   ✓ round: Jeopardy!
+motojeopardyner  |   ✓ show_number: 4680
+motojeopardyner  |   ✓ question: 'No. 2: 1912 Olympian; football star at Carlisle I → 'No. 2: 1912 Olympian; football star at Carlisle I
+motojeopardyner  |   ✓ answer: Jim Thorpe → Jim Thorpe
+motojeopardyner  | 
+motojeopardyner  | 
+motojeopardyner  | Record 3 (Index 2): ✓ VALID
+motojeopardyner  |   Metadata: ✓ | Text: ✓
+motojeopardyner  |   ✓ category: EVERYBODY TALKS ABOUT IT...
+motojeopardyner  |   ✓ air_date: 2004-12-31
+motojeopardyner  |   ✓ value: $200
+motojeopardyner  |   ✓ round: Jeopardy!
+motojeopardyner  |   ✓ show_number: 4680
+motojeopardyner  |   ✓ question: 'The city of Yuma in this state has a record avera → 'The city of Yuma in this state has a record avera
+motojeopardyner  |   ✓ answer: Arizona → Arizona
+motojeopardyner  | 
+motojeopardyner  | 🔄 Processing all records...
+motojeopardyner  | 2025-07-14 02:53:24,564 - data.cleaner - INFO - Starting cleaning process for 216930 records
+motojeopardyner  | 2025-07-14 02:53:24,580 - data.cleaner - INFO - Stage 1: Validating metadata fields...
+motojeopardyner  | 2025-07-14 02:53:30,022 - data.cleaner - INFO - Stage 1 complete: 216930/216930 records have valid metadata
+motojeopardyner  | 2025-07-14 02:53:30,023 - data.cleaner - INFO - Stage 2: Cleaning text fields...
+motojeopardyner  | 2025-07-14 02:53:30,023 - data.cleaner - INFO - Cleaning question field...
+motojeopardyner  | 2025-07-14 02:53:34,045 - data.cleaner - INFO - Cleaning answer field...
+motojeopardyner  | 2025-07-14 02:53:34,950 - data.cleaner - INFO - Stage 3: Final validation of cleaned text fields...
+motojeopardyner  | 2025-07-14 02:53:39,349 - data.cleaner - INFO - Cleaning completed: 216930/216930 records retained
+motojeopardyner  | 
+motojeopardyner  | ======================================================================
+motojeopardyner  | 📊 DATA CLEANING & VALIDATION REPORT
+motojeopardyner  | ======================================================================
+motojeopardyner  | 📈 OVERALL SUMMARY:
+motojeopardyner  |   Total records processed: 216,930
+motojeopardyner  |   Valid records retained: 216,930
+motojeopardyner  |   Records removed: 0
+motojeopardyner  |   Retention rate: 100.00%
+motojeopardyner  | 
+motojeopardyner  | 📋 FIELD VALIDATION STATISTICS:
+motojeopardyner  |   METADATA FIELDS (Strict Validation):
+motojeopardyner  |     CATEGORY:
+motojeopardyner  |       Non-empty: 216,930/216,930 (100.0%)
+motojeopardyner  |       Errors: 0 (0.0%)
+motojeopardyner  |       Valid: 216,930
+motojeopardyner  |     AIR_DATE:
+motojeopardyner  |       Non-empty: 216,930/216,930 (100.0%)
+motojeopardyner  |       Errors: 0 (0.0%)
+motojeopardyner  |       Valid: 216,930
+motojeopardyner  |     VALUE:
+motojeopardyner  |       Non-empty: 216,930/216,930 (100.0%)
+motojeopardyner  |       Errors: 0 (0.0%)
+motojeopardyner  |       Valid: 216,930
+motojeopardyner  |     ROUND:
+motojeopardyner  |       Non-empty: 216,930/216,930 (100.0%)
+motojeopardyner  |       Errors: 0 (0.0%)
+motojeopardyner  |       Valid: 216,930
+motojeopardyner  |     SHOW_NUMBER:
+motojeopardyner  |       Non-empty: 216,930/216,930 (100.0%)
+motojeopardyner  |       Errors: 0 (0.0%)
+motojeopardyner  |       Valid: 216,930
+motojeopardyner  |   TEXT FIELDS (Cleaned & Leniently Validated):
+motojeopardyner  |     QUESTION:
+motojeopardyner  |       Non-empty: 216,930/216,930 (100.0%)
+motojeopardyner  |       Errors after cleaning: 0 (0.0%)
+motojeopardyner  |       Valid: 216,930
+motojeopardyner  |     ANSWER:
+motojeopardyner  |       Non-empty: 216,930/216,930 (100.0%)
+motojeopardyner  |       Errors after cleaning: 0 (0.0%)
+motojeopardyner  |       Valid: 216,930
+motojeopardyner  | 
+motojeopardyner  | 🧹 TEXT CLEANING SUMMARY:
+motojeopardyner  |   QUESTION:
+motojeopardyner  |     Avg length: 89 → 83 chars
+motojeopardyner  |     Avg reduction: 5.4 chars
+motojeopardyner  |     Empty after cleaning: 0
+motojeopardyner  |     Significantly reduced: 10,819
+motojeopardyner  |   ANSWER:
+motojeopardyner  |     Avg length: 12 → 12 chars
+motojeopardyner  |     Avg reduction: 0.0 chars
+motojeopardyner  |     Empty after cleaning: 0
+motojeopardyner  |     Significantly reduced: 1
+motojeopardyner  | 📁 Validation report saved to: outputs/validation/cleaning_report.json
+motojeopardyner  | 
+motojeopardyner  | 💾 CLEANED DATA SAVED:
+motojeopardyner  |   - Clean dataset: data/processed/jeopardy_cleaned.jsonl
+motojeopardyner  |   - Validation report: outputs/validation/cleaning_report.json
+motojeopardyner  |   - Processing time: 14.8 seconds
+motojeopardyner  |   - Final dataset size: 216,930 records
+motojeopardyner  | 
+motojeopardyner  | 🔢 STEP 3: PROCESSING NUMBERS SUBSET
+motojeopardyner  | ============================================================
+motojeopardyner  | 2025-07-14 02:53:45,273 - factories.base_factory.NumbersDatasetFactory - INFO - Starting numbers detection using 10 processes...
+motojeopardyner  | 2025-07-14 02:53:50,287 - factories.base_factory.NumbersDatasetFactory - INFO - Processing 216,930 records in 30 chunks (~7231 records per chunk)
+Processing numbers: 100%|██████████| 30/30 [02:35<00:00,  5.20s/it]
+motojeopardyner  | 2025-07-14 02:56:26,463 - factories.base_factory.NumbersDatasetFactory - INFO - ✓ numbers detection completed: 118,547/216,930 records (54.6%) in 161.2s
+motojeopardyner  | 2025-07-14 02:56:26,735 - factories.base_factory.NumbersDatasetFactory - INFO - Sampled 1,000 records from 118,547 candidates
+motojeopardyner  | 2025-07-14 02:56:26,748 - factories.base_factory.NumbersDatasetFactory - INFO - ✓ Exported 1,000 records to data/subsets/numbers_subset.jsonl
+motojeopardyner  | 
+motojeopardyner  | ✓ Numbers subset completed:
+motojeopardyner  |   - Candidates found: 118,547/216,930 (54.6%)
+motojeopardyner  |   - Subset generated: 1,000 records
+motojeopardyner  |   - Processing time: 161.3s
+motojeopardyner  |   - Speed: 1346 records/second
+motojeopardyner  |   - Output: data/subsets/numbers_subset.jsonl
+motojeopardyner  | 
+motojeopardyner  | 🌍 STEP 4: PROCESSING NON-ENGLISH SUBSET
+motojeopardyner  | ============================================================
+motojeopardyner  | 2025-07-14 02:56:26,782 - factories.base_factory.NonEnglishDatasetFactory - INFO - Starting non_english detection using 10 processes...
+motojeopardyner  | 2025-07-14 02:56:31,379 - factories.base_factory.NonEnglishDatasetFactory - INFO - Processing 216,930 records in 30 chunks (~7231 records per chunk)
+Processing non_english: 100%|██████████| 30/30 [02:28<00:00,  4.95s/it]
+motojeopardyner  | 2025-07-14 02:59:00,201 - factories.base_factory.NonEnglishDatasetFactory - INFO - ✓ non_english detection completed: 36,467/216,930 records (16.8%) in 153.4s
+motojeopardyner  | 2025-07-14 02:59:00,551 - factories.base_factory.NonEnglishDatasetFactory - INFO - Sampled 1,000 records from 36,467 candidates
+motojeopardyner  | 2025-07-14 02:59:00,572 - factories.base_factory.NonEnglishDatasetFactory - INFO - ✓ Exported 1,000 records to data/subsets/non_english_subset.jsonl
+motojeopardyner  | 
+motojeopardyner  | ✓ Non-English subset completed:
+motojeopardyner  |   - Candidates found: 36,467/216,930 (16.8%)
+motojeopardyner  |   - Subset generated: 1,000 records
+motojeopardyner  |   - Processing time: 153.5s
+motojeopardyner  |   - Speed: 1414 records/second
+motojeopardyner  |   - Output: data/subsets/non_english_subset.jsonl
+motojeopardyner  | 
+motojeopardyner  | 👤 STEP 5: PROCESSING PROPER NOUNS SUBSET
+motojeopardyner  | ============================================================
+motojeopardyner  | Phase 1: Analyzing entity frequencies across entire dataset...
+motojeopardyner  | 2025-07-14 02:59:00,743 - factories.base_factory.ProperNounsDatasetFactory - INFO - Analyzing proper noun frequencies across 216,930 records...
+motojeopardyner  | 2025-07-14 02:59:00,747 - factories.base_factory.ProperNounsDatasetFactory - INFO - Processing 216,930 records in 10 chunks using 10 processes
+Processing chunks: 100%|██████████| 10/10 [01:14<00:00,  7.49s/it]
+motojeopardyner  | 2025-07-14 03:00:16,140 - factories.base_factory.ProperNounsDatasetFactory - INFO - Frequency analysis completed:
+motojeopardyner  | 2025-07-14 03:00:16,144 - factories.base_factory.ProperNounsDatasetFactory - INFO -   - Total unique proper nouns: 118,907
+motojeopardyner  | 2025-07-14 03:00:16,144 - factories.base_factory.ProperNounsDatasetFactory - INFO -   - Unusual nouns (≤3): 105,029
+motojeopardyner  | 2025-07-14 03:00:16,144 - factories.base_factory.ProperNounsDatasetFactory - INFO -   - Percentage unusual: 88.3%
+motojeopardyner  | 2025-07-14 03:00:16,205 - factories.base_factory.ProperNounsDatasetFactory - INFO -   - Most common: {'u.s.': 4172, 'sarah': 1209, 'california': 989, 'france': 961, 'oscar': 861}
+motojeopardyner  | Phase 2: Detecting records with unusual entities...
+motojeopardyner  | 2025-07-14 03:00:16,209 - factories.base_factory.ProperNounsDatasetFactory - INFO - Starting proper_nouns detection using 10 processes...
+motojeopardyner  | 2025-07-14 03:00:21,221 - factories.base_factory.ProperNounsDatasetFactory - INFO - Processing 216,930 records in 30 chunks (~7231 records per chunk)
+Processing proper_nouns: 100%|██████████| 30/30 [00:36<00:00,  1.22s/it]
+motojeopardyner  | 2025-07-14 03:00:58,259 - factories.base_factory.ProperNounsDatasetFactory - INFO - ✓ proper_nouns detection completed: 216,906/216,930 records (100.0%) in 42.0s
+motojeopardyner  | 2025-07-14 03:00:58,732 - factories.base_factory.ProperNounsDatasetFactory - INFO - Sampled 1,000 records from 216,906 candidates
+motojeopardyner  | 2025-07-14 03:00:58,762 - factories.base_factory.ProperNounsDatasetFactory - INFO - ✓ Exported 1,000 records to data/subsets/proper_nouns_subset.jsonl
+motojeopardyner  | 
+motojeopardyner  | ✓ Proper nouns subset completed:
+motojeopardyner  |   - Total entities analyzed: 118,907
+motojeopardyner  |   - Unusual entities (≤3): 105,029
+motojeopardyner  |   - Candidates found: 216,906/216,930 (100.0%)
+motojeopardyner  |   - Subset generated: 1,000 records
+motojeopardyner  |   - Frequency analysis: 75.5s
+motojeopardyner  |   - Detection time: 42.1s
+motojeopardyner  |   - Total time: 117.6s
+motojeopardyner  |   - Output: data/subsets/proper_nouns_subset.jsonl
+motojeopardyner  | 
+motojeopardyner  | 📊 STEP 6: GENERATING ANALYSIS REPORT
+motojeopardyner  | ============================================================
+motojeopardyner  | ✓ Analysis reports generated:
+motojeopardyner  |   - Detailed analysis: outputs/reports/analysis_report.json
+motojeopardyner  |   - Methodology: outputs/reports/methodology_report.md
+motojeopardyner  | 
+motojeopardyner  | ============================================================
+motojeopardyner  | 🎉 PIPELINE COMPLETED SUCCESSFULLY!
+motojeopardyner  | ============================================================
+motojeopardyner  | ✓ Total processing time: 456.0 seconds
+motojeopardyner  | ✓ Original records: 216,930
+motojeopardyner  | ✓ Cleaned records: 216,930
+motojeopardyner  | ✓ Data quality improvement: 0.0% problematic records removed
+motojeopardyner  | ✓ Subsets generated: 3 files with 1000 records each
+motojeopardyner  | ✓ Output directories:
+motojeopardyner  |   - Clean dataset: data/processed/
+motojeopardyner  |   - Validation reports: outputs/validation/
+motojeopardyner  |   - Subsets: data/subsets/
+motojeopardyner  |   - Analysis reports: outputs/reports/
+motojeopardyner  | 
+motojeopardyner  | 📁 Generated Files:
+motojeopardyner  |   - data/processed/jeopardy_cleaned.jsonl (216,930 records)
+motojeopardyner  |   - data/subsets/numbers_subset.jsonl (234.2 KB)
+motojeopardyner  |   - data/subsets/non_english_subset.jsonl (235.4 KB)
+motojeopardyner  |   - data/subsets/proper_nouns_subset.jsonl (231.3 KB)
+motojeopardyner exited with code 0

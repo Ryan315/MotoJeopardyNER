@@ -32,4 +32,3 @@ WARN[0000] /Users/ryany/Documents/Project_codes/MyGit/MotoJeopardyNER/docker-com
  => => naming to docker.io/library/motojeopardyner-motojeopardyner                                                        0.0s
  => [test] resolving provenance for metadata file                                                                         0.0s
  => [motojeopardyner] resolving provenance for metadata file                                                              0.0s
-(env-dev)  
