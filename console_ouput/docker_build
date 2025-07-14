@@ -1,0 +1,35 @@
+⚡ docker compose build                                 □ MotoJeopardyNER △ docker_warp⋯⎪●◦◌◦⎥ [🐍 3.12.8 (env-dev)] [🕙19:49]
+WARN[0000] /Users/ryany/Documents/Project_codes/MyGit/MotoJeopardyNER/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] Building 100.9s (19/24)                                                                               docker:desktop-linux
+ => [test internal] load build definition from dockerfile                                                                 0.0s
+ => => transferring dockerfile: 843B                                                                                      0.0s
+ => [motojeopardyner internal] load build definition from dockerfile                                                      0.0s
+ => => transferring dockerfile: 843B                                                                                      0.0s
+ => [test internal] load metadata for docker.io/library/python:3.9-slim                                                   0.4s
+ => [test internal] load .dockerignore                                                                                    0.0s
+ => => transferring context: 603B                                                                                         0.0s
+ => [motojeopardyner internal] load .dockerignore                                                                         0.0s
+ => => transferring context: 603B                                                                                         0.0s
+ => [test 1/8] FROM docker.io/library/python:3.9-slim@sha256:c2a0feb07dedbf91498883c2f8e1e5201e95c91d413e21c3bea780c8aad  0.0s
+ => [motojeopardyner internal] load build context                                                                         0.0s
+ => => transferring context: 4.23kB                                                                                       0.0s
+ => [test internal] load build context                                                                                    0.0s
+ => => transferring context: 4.23kB                                                                                       0.0s
+ => CACHED [test 2/8] WORKDIR /app                                                                                        0.0s
+ => CACHED [test 3/8] RUN apt-get update && apt-get install -y     gcc     g++     && rm -rf /var/lib/apt/lists/*         0.0s
+ => [motojeopardyner 4/8] COPY requirements.txt .                                                                         0.0s
+ => [motojeopardyner 5/8] RUN pip install --no-cache-dir -r requirements.txt                                             96.3s
+ => [motojeopardyner 6/8] RUN python -m spacy download en_core_web_sm &&     python -c "import nltk; nltk.download('word  2.6s
+ => [motojeopardyner 7/8] COPY . .                                                                                        0.5s 
+ => [motojeopardyner 8/8] RUN mkdir -p data/raw data/processed data/subsets outputs/logs outputs/processed outputs/repor  0.1s 
+ => [test] exporting to image                                                                                             0.9s 
+ => => exporting layers                                                                                                   0.9s 
+ => => writing image sha256:97b3091d68755baec0143346d88af78a22c6378b06f1f4ff5c37beb48a6d3acb                              0.0s 
+ => => naming to docker.io/library/motojeopardyner-test                                                                   0.0s 
+ => [motojeopardyner] exporting to image                                                                                  0.9s
+ => => exporting layers                                                                                                   0.9s
+ => => writing image sha256:6d2b1b2258625e0993055f13dd1bfff3cf203605dc717f24858d096b9a56cbc9                              0.0s
+ => => naming to docker.io/library/motojeopardyner-motojeopardyner                                                        0.0s
+ => [test] resolving provenance for metadata file                                                                         0.0s
+ => [motojeopardyner] resolving provenance for metadata file                                                              0.0s
+(env-dev)  
