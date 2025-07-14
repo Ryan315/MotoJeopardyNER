@@ -11,13 +11,17 @@ Goal: Curate specialized subsets from the Jeopardy Questions dataset to validate
 # 3. Project structure sketch:
 ## 3.1 Data preprocessing
 - [x] dataloader
-- [ ] validation/clean
+- [x] validation/clean
+Target: Preserves meaningful content while cleaning formatting issues
+1. HTML processing
+2. Field specific cleaning
+3. Text normalization
 
 ## 3.2 Data generation
 ### 3.2.1 Datafactory
-- [ ] phrases containing numbers
-- [ ] phrases containing non-English words
-- [ ] phrases containing unusual proper nouns
+- [x] phrases containing numbers
+- [x] phrases containing non-English words
+- [x] phrases containing unusual proper nouns
 
 # 4. Infrastructure
 ## 4.1 Logging
