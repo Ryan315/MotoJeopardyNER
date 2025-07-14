@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  motojeopardyner:
+    build: .
+    container_name: motojeopardyner
+    volumes:
+      # Mount directory to persist data
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./data/raw:/app/data/raw:ro
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    # Override default command if needed
+    
+  # Service for testing data loader and cleaner
+  test:
+    build: .
+    container_name: motojeopardyner-test
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    command: python scripts/test_data_pipeline.py 1000

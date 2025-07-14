@@ -68,12 +68,14 @@ Implementation analysis and packages used are detailed in each ***factory docstr
 ---
 
 # 6. Get Start
-## 6.1 Setup
-1. Install packages
+## 6.1 Setup manually
+### 1. Install packages
 ```bash
 pip3 install -r requirements.txt
+python3 -m spacy download en_core_web_sm
+python3 -c "import nltk; nltk.download('words')"
 ```
-2. Run main_pipeline
+### 2. Run main_pipeline
 ```bash
 python3 scripts/main_pipeline.py
 ```
@@ -82,9 +84,9 @@ python3 scripts/main_pipeline.py
 2. sampled subsets saved to data/subsets/*
 3. logging and report saved to outputs/*
 
-Console outputs are saved to ['console output'](./console_log)
+Console outputs are saved to ['console output'](./console_ouput/console_log)
 
-## 6.2 Module validation
+### 3. Module validation(optional)
 - dataloader
 ```bash
 python3 -m src.data.handler
@@ -102,3 +104,20 @@ python3 -m src.factories.language_factory
 python3 -m src.factories.entities_factory
 ```
 
+## 6.3 Simple setup with docker
+
+Test in MacOS, in Linux use 'docker-compose' to replace 'docker compose' below.
+
+1. build docker image
+```bash
+git clone <repository-url>
+cd MotoJeopardyNER
+docker compose build
+```
+build output refer to [docker build output](./console_ouput/docker_build)
+
+2. Run the main pipeline
+```bash
+docker compose up motojeopardyner
+```
+pipeline output refert to [console output(docker)](./console_ouput/console_log_docker)
