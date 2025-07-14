@@ -12,6 +12,7 @@ Goal: Curate specialized subsets from the Jeopardy Questions dataset to validate
 ## 3.1 Data preprocessing
 - [x] dataloader
 - [x] validation/clean
+
 Target: Preserves meaningful content while cleaning formatting issues
 1. HTML processing
 2. Field specific cleaning
@@ -23,23 +24,44 @@ Target: Preserves meaningful content while cleaning formatting issues
 - [x] phrases containing non-English words
 - [x] phrases containing unusual proper nouns
 
+Implementation analysis and packages used are detailed in each ***factory docstring***.
+
 # 4. Infrastructure
-## 4.1 Logging
-## 4.2 Reports
-## 4.3 Validation
+- [x] Logging
+- [x] Reports
+- [x] Validation
 
 # 5. Further consideration
-- [] Module reusable
-- [] Caching and database
+- [ ] Module reusable
+- [ ] Caching and database
 
 ---
 
 # 6. Get Start
 ## 6.1 Setup
+1. Install packages
+```bash
+pip3 install -r requirements.txt
+```
+2. Run main_pipeline
+```bash
+python3 scripts/main_pipeline.py
+```
+
+
+1. cleaned data saved to data/processed/jeopardy_cleaned.jsonl
+2. sampled subsets saved to data/subsets/*
+3. logging and report saved to outputs/*
+
 ## 6.2 Module validation
 - dataloader
 ```bash
 python3 -m src.data.handler
+```
+
+- data cleaner
+```bash
+python3 scripts/test_data_pipeline.py
 ```
 
 - datafactory
@@ -48,3 +70,4 @@ python3 -m src.factories.numbers_factory
 python3 -m src.factories.language_factory
 python3 -m src.factories.entities_factory
 ```
+
